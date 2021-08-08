@@ -4,6 +4,8 @@ const mysql = require("mysql2");
 const cors = require('cors');
 const path = require('path');
 
+const user = require('./model/users.js')
+
 let db = null;
 const app = express();
 
@@ -12,8 +14,15 @@ const port = 8080;
 app.use(express.json());
 
 app.get('/', (req, res)=>{
-  res.send("yo wassup")
+  user.getTestString()
+    .then((result)=>{
+      res.status(200).send(result)
+    })
+    .catch((err)=>{
+      res.status(500).send(err)
+    })
 });
+
 /* app.post('/create-user', async(req, res, next)=>{
   const name = req.body.name;
 
