@@ -11,6 +11,9 @@ const port = 8080;
 
 app.use(express.json());
 
+app.get('/', (req, res, next)=>{
+  res.send("yo wassup")
+});
 /* app.post('/create-user', async(req, res, next)=>{
   const name = req.body.name;
 
