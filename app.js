@@ -11,7 +11,7 @@ const port = 8080;
 
 app.use(express.json());
 
-app.get('/', (req, res, next)=>{
+app.get('/', (req, res)=>{
   res.send("yo wassup")
 });
 /* app.post('/create-user', async(req, res, next)=>{
